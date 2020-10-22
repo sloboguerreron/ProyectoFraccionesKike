@@ -28,6 +28,8 @@
 	<!-- main css -->
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/proSumaResta.css">
+	<link rel="stylesheet/scss" type="text/css" href="css/progressCircular.css">
+	<link rel="stylesheet" href="css/progress-circle.css">
 </head>
 
 <body>
@@ -100,7 +102,17 @@
 
 							<div class="final">
 								<p>Has terminado la serie de problemas, tu puntaje fue:</p>
-								<p id="puntaje"></p>
+								<div class="puntaje">
+									<div class="puntaje">
+										<input type="number" size="2" maxlength="2" value="0" name="res1" id="res1">
+										<hr>
+										<input type="number" size="2" maxlength="2" value="0" name="res2" id="res2">
+									</div>
+									<div class="puntaje">
+										<div class="progress-circle" id="porcentaje_progress"><span id="percent">20</span></div>
+									</div>
+								</div>
+								
 							</div>
 
 					<br><br>
@@ -121,7 +133,7 @@
 			</div>
 			<div class="col-lg-6">
 				<div class="section_content">
-					<img src="./img/fraction.png" alt="any image" width="50%">
+					<img src="./img/fraction.png" alt="any image" width="50%" id="image_problem">
 				</div>
 			</div>
 		</div>
