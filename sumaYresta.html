@@ -5,16 +5,9 @@
 <head>
 	<!-- javascrip -->
 	<script type="text/javascript">
-		function numRamdon() {
-			var numUno = Math.round(Math.random() * 50);
-			var numDos = Math.round(Math.random() * 50);
-			var numTres = Math.round(Math.random() * 50);
-			var numCuatro = Math.round(Math.random() * 50);
-			var numUnoResta = Math.round(Math.random() * 50);
-			var numDosResta = Math.round(Math.random() * 50);
-			var numTresResta = Math.round(Math.random() * 50);
-			var numCuatroResta = Math.round(Math.random() * 50);
-			alert("Número aleatorio entre 0 y 1:  " + numUno);
+		function ejemplo1() {
+			var aleatorio = Math.random(1, 25);
+			alert("Número aleatorio entre 0 y 1:  " + aleatorio);
 		}
 	</script>
 
@@ -34,6 +27,10 @@
 	<link rel="stylesheet" href="vendors/flaticon/flaticon.css">
 	<!-- main css -->
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/proSumaResta.css">
+	<link rel="stylesheet/scss" type="text/css" href="css/progressCircular.css">
+	<link rel="stylesheet" href="css/progress-circle.css">
+	<link rel="stylesheet" href="css/multiplicacion.css">
 </head>
 
 <body>
@@ -71,68 +68,77 @@
 	<section class="about_us_area section_gap_top">
 		<div class="container">
 			<div class="row about_content align-items-center">
-				<div class="col-lg-6">
+				<div class="col-lg-6 inicio">
 					<div class="section_content">
 						<h6>Suma y Resta</h6>
-						<center>
-							<table class="egt" BORDER=1 WIDTH=100 HEIGHT=100 >
-
-								<tr>
-
-									<td>Celda 1</td>
-
-
-								</tr>
-
-								<tr>
-
-									<td>Celda 4</td>
-
-								</tr>
-							</table>
-							<table class="egt" BORDER=1 WIDTH=150 HEIGHT=100>
-
-								<tr>
-
-									<td>Celda 1</td>
-
-
-								</tr>
-
-								<tr>
-
-									<td>Celda 4</td>
-
-								</tr>
-							</table>
-							<p>    </p>
-							<!--
-						<p><script type="text/javascript">numUno</script></p>
-						
 						<p>
-								<div class="fraction">
-								<span class="fup"><i>n</i>(NaOH)</span>
-								<span class="bar">/</span>
-								<span class="fdn"><i>V</i>(NaOH)</span>
+
+							<div class="introduction">
+								<p>Aquí iniciaremos a formular ejercicios para que practiques la suma y resta de
+									fraccionarios, será una serie de 10 ejercicios!</p>
+								<p>Ten en cuenta que tienes 2 intentos por ejercicio</p>
+								<a class="primary_btn" onclick="iniciar()">COMENCEMOS</a>
+							</div>
+
+							<div class="final">
+								<p>Has terminado la serie de ejercicios, tu puntaje fue:</p>
+								<div class="puntaje">
+									<div class="puntaje">
+										<input type="number" size="2" maxlength="2" value="0" name="res1" id="res1">
+										<hr>
+										<input type="number" size="2" maxlength="2" value="0" name="res2" id="res2">
+									</div>
+									<div class="puntaje">
+										<div class="progress-circle" id="porcentaje_progress"><span id="percent">20</span></div>
+									</div>
 								</div>
 								
-							<input type="text" size="15" maxlength="30" value="Resultado" name="resultado">
-						</p> -->
-							<a class="primary_btn" onclick="ejemplo1()">Verificar</a>
+							</div>
 
-						</center>
-					</div>
+					
+					
 				</div>
-				<div class="col-lg-6">
 
+			</div>
+			<div class="col-lg-6 inicio">
+				<div class="section_content">
+					<img src="./img/fraction.png" alt="any image" width="50%" id="image_problem">
 				</div>
 			</div>
+
+			<div class="col-lg-12 section_content ejercicios solution_message ">
+				<h6>Selecciona la respuesta correcta!</h6>
+				<br>
+				<img id="img_ejercicio" src="./img/sumaYresta/1.png" alt="" align="center">
+				<div class="contenido">
+					<br>
+					<div class="botones">
+						<button class="btn" id="primero" onclick="resultado('primero')">1</button>
+						<button class="btn" id="segundo" onclick="resultado('segundo')">2</button>
+						<button class="btn" id="tercero" onclick="resultado('tercero')">3</button>
+						<button class="btn" id="cuarto" onclick="resultado('cuarto')">4</button>
+					</div>
+					<br>
+					<div class="ok bg-success solution_message">
+						<p id="solution_ok">OK</p>
+					</div>
+					<div class="error bg-danger solution_message">
+						<p id="solution_error">ERROR</p>
+					</div>
+					<br><br>
+					<div class="siguiente">
+						<a class="primary_btn" onclick="siguiente()">SIGUIENTE</a>
+					</div>
+				</div>
+			</div>
+			
+		</div>
 		</div>
 	</section>
 	<!--================End About Us Area =================-->
 
 	<!--================Footer Area =================-->
-	<footer class="footer_area section_gap_top">
+	<footer class="footer_area section_gap_top footer_margin">
 		<div class="container">
 			<div class="row footer_inner">
 				<div class="col-lg-3 col-sm-6">
@@ -200,10 +206,10 @@
 					<div class="copy_right_text">
 						<p>
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;
-							<script>document.write(new Date().getFullYear());</script> All rights reserved | This
-							template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-								href="https://colorlib.com" target="_blank">Colorlib</a>
+							Copyright &copy;<script>
+								document.write(new Date().getFullYear());
+							</script> All rights reserved | This template is made with <i class="fa fa-heart-o"
+								aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						</p>
 					</div>
@@ -245,6 +251,8 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 	<script src="js/gmaps.min.js"></script>
 	<script src="js/theme.js"></script>
+	<script src="js/problemasSumaResta.js"></script>
+	<script src="js/sumaYresta.js"></script>
 </body>
 
 </html>
