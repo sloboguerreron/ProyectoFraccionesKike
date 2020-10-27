@@ -2905,7 +2905,7 @@ h6 {
 ============================================================================================ */
 .testimonials_area {
   position: relative;
-  background: url(../img/testimonial_bg.png) no-repeat center;
+  background: url(../img/recent_up_bg.png) no-repeat center;
   background-size: cover; }
 
 .testi_slider {
@@ -3829,12 +3829,12 @@ h6 {
     list-style: none;
     padding-left: 0;
     margin-bottom: 50px; }
-    .footer_area .f_widget ul li {
+    .footer_area .f_widget ul li a {
       display: block;
       padding-bottom: 20px;
       color: rgba(255, 255, 255, 0.5);
       cursor: pointer; }
-      .footer_area .f_widget ul li:hover {
+      .footer_area .f_widget ul li a:hover {
         color: #3fcaff; }
 
 .single-footer-widget {
