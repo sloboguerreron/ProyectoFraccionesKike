@@ -6,16 +6,15 @@
 	<!-- javascrip -->
 	<script type="text/javascript">
 		function ejemplo1() {
-		var aleatorio = Math.random(1,25);
-		alert("Número aleatorio entre 0 y 1:  "+ aleatorio);}
-
-		
-	</script> 
+			var aleatorio = Math.random(1, 25);
+			alert("Número aleatorio entre 0 y 1:  " + aleatorio);
+		}
+	</script>
 
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
+
 	<title>The King of Fractions</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.css">
@@ -28,6 +27,9 @@
 	<link rel="stylesheet" href="vendors/flaticon/flaticon.css">
 	<!-- main css -->
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/proSumaResta.css">
+	<link rel="stylesheet/scss" type="text/css" href="css/progressCircular.css">
+	<link rel="stylesheet" href="css/progress-circle.css">
 </head>
 
 <body>
@@ -39,8 +41,9 @@
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<a class="navbar-brand logo_h" href="index.html"><img src="theking.png" alt=""></a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -48,10 +51,10 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav justify-content-center">
-							<li class="nav-item active"><a class="nav-link" href="index.html">inicio</a></li>							
+							<li class="nav-item active"><a class="nav-link" href="index.html">inicio</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-							
+
 						</ul>
 					</div>
 				</div>
@@ -66,29 +69,80 @@
 			<div class="row about_content align-items-center">
 				<div class="col-lg-6">
 					<div class="section_content">
-						<h6>Problemas Division</h6>
+						<h6>Problema Division</h6>
 						<p>
-								<div class="fraction">
-								<span class="fup"><i>n</i>(NaOH)</span>
-								<span class="bar">/</span>
-								<span class="fdn"><i>V</i>(NaOH)</span>
+
+							<div class="introduction">
+								<p>Aquí iniciaremos a formular problemas para que practiques las division de
+									fraccionarios, será una serie de 5 problemas!</p>
+								<p>Ten en cuenta que tienes 2 intentos por ejercicio</p>
+								<a class="primary_btn" onclick="init()">COMENCEMOS</a>
+							</div>
+
+							<div class="problem">
+								<div class="content_problem">
+									<div class="left_panel">
+										<div class="problem_description">
+											<p id="p_clasic"><b>FORMULACIÓN DEL PROBLEMA</b></p>
+											<p id="description"></p>
+										</div>
+									</div>
+								</div>
+
+								<div class="result">
+									<input type="number" size="2" maxlength="2" value="0" name="num1" id="num1">
+									<hr>
+									<input type="number" size="2" maxlength="2" value="0" name="num2" id="num2">
+								</div>
+							
+
+								</p>
+								<a class="primary_btn verificar" onclick="verify()">Verificar</a>
+							</div>
+
+							<div class="final">
+								<p>Has terminado la serie de problemas, tu puntaje fue:</p>
+								<div class="puntaje">
+									<div class="puntaje">
+										<input type="number" size="2" maxlength="2" value="0" name="res1" id="res1">
+										<hr>
+										<input type="number" size="2" maxlength="2" value="0" name="res2" id="res2">
+									</div>
+									<div class="puntaje">
+										<div class="progress-circle" id="porcentaje_progress"><span id="percent">20</span></div>
+									</div>
 								</div>
 								
-							<input type="text" size="15" maxlength="30" value="Resultado" name="resultado">
-						</p>
-						<a class="primary_btn" onclick="ejemplo1()" >Verificar</a>
+							</div>
+
+					<br><br>
+					<div class="ok bg-success solution_message">
+						<p id="solution_ok"></p>
 					</div>
-				</div>
-				<div class="col-lg-6">
+					<div class="error bg-danger solution_message">
+						<p id="solution_error"></p>
+					</div>
+					<br><br>
+					<div class="siguiente">
+						<a class="primary_btn" onclick="otherProblem()">SIGUIENTE</a>
+					</div>
 					
 				</div>
+
+
 			</div>
+			<div class="col-lg-6">
+				<div class="section_content">
+					<img src="./img/fraction.png" alt="any image" width="50%" id="image_problem">
+				</div>
+			</div>
+		</div>
 		</div>
 	</section>
 	<!--================End About Us Area =================-->
 
 	<!--================Footer Area =================-->
-	<footer class="footer_area section_gap_top">
+	<footer class="footer_area section_gap_top footer_margin">
 		<div class="container">
 			<div class="row footer_inner">
 				<div class="col-lg-3 col-sm-6">
@@ -154,9 +208,14 @@
 			<div class="row single-footer-widget">
 				<div class="col-lg-6 col-md-6 col-sm-12">
 					<div class="copy_right_text">
-						<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+						<p>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							Copyright &copy;<script>
+								document.write(new Date().getFullYear());
+							</script> All rights reserved | This template is made with <i class="fa fa-heart-o"
+								aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</p>
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12">
@@ -170,9 +229,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			</div>
 		</div>
 	</footer>
-	<!--================End Footer Area =================--> 
+	<!--================End Footer Area =================-->
 
-	
+
 
 	</footer>
 	<!--================End Footer Area =================-->
@@ -196,6 +255,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 	<script src="js/gmaps.min.js"></script>
 	<script src="js/theme.js"></script>
+	<script src="js/problemasDivision.js"></script>
 </body>
 
 </html>
